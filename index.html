@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>טופס הזמנת חלקים</title>
+  <style>
+    body { font-family: Arial; direction: rtl; padding: 20px; }
+    label, select, input, textarea { display: block; margin-bottom: 10px; width: 100%; max-width: 500px; }
+    button { padding: 10px 20px; }
+    .item-row { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h1>טופס הזמנת מתכלים וחלקי חילוף</h1>
+
+  <form action="https://formsubmit.co/rami.levi@siemens-healthineers.com" method="POST">
+    <!-- הגדרות נסתרות ל-FormSubmit -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="התקבלה הזמנת חלקים חדשה">
+    <input type="hidden" name="_template" value="table">
+    
+    <!-- פרטי הלקוח -->
+    <label>שם מלא:<input type="text" name="שם מלא" required></label>
+    <label>בית חולים:<input type="text" name="בית חולים" required></label>
+    <label>שם המעבדה:<input type="text" name="שם המעבדה"></label>
+    <label>טלפון:<input type="tel" name="טלפון" required></label>
+    <label>אימייל:<input type="email" name="אימייל" required></label>
+    <label>הערות:<textarea name="הערות"></textarea></label>
+
+    <!-- פריטים -->
+    <h3>פריטים להזמנה</h3>
+    <div id="items"></div>
+    <button type="button" onclick="addItem()">הוסף פריט</button>
+
+    <br><br>
+    <button type="submit">שלח הזמנה</button>
+  </form>
+
+  <script>
+    const data = [
+      { smn: '10337398', description: 'DPP PROBE', systems: ['ADVIA 1200', 'ADVIA 1800', 'ADVIA 2400', 'ADVIA XPT'] },
+      { smn: '10309448', description: 'LAMP HALOGEN', systems: ['ADVIA 1200', 'ADVIA 1800', 'ADVIA 2400', 'ADVIA XPT'] },
+      { smn: '10329234', description: 'NEEDLE CLEANING KIT', systems: ['ADVIA 120', 'ADVIA 2120', 'ADVIA 2120I'] },
+      { smn: '10310090', description: 'CLOT FILTER, TEFLON', systems: ['ADVIA 120', 'ADVIA 2120', 'ADVIA 2120I'] },
+      { smn: '10311254', description: 'FILTER-VACUSHIELD', systems: ['ADVIA 120', 'ADVIA 2120', 'ADVIA 2120I'] }
+      // קיצור רשימה לצורך הדוגמה - אפשר להחזיר את כל הרשימה
+    ];
+
+    function addItem() {
+      const container = document.createElement('div');
+      container.className = 'item-row';
+
+      const systemSelect = document.createElement('select');
+      const systems = [...new Set(data.flatMap(d => d.systems))].sort();
+      systemSelect.innerHTML = '<option value="">בחר מערכת</option>' + systems.map(s => `<option value="${s}">${s}</option>`).join('');
+
+      const partSelect = document.createElement('select');
+      partSelect.innerHTML = '<option value="">בחר פריט</option>';
+
+      const qtyInput = document.createElement('input');
+      qtyInput.type = 'number';
+      qtyInput.min = 1;
+      qtyInput.placeholder = 'כמות';
+      qtyInput.required = true;
+
+      systemSelect.onchange = function () {
+        partSelect.innerHTML = '<option value="">בחר פריט</option>' +
+          data.filter(d => d.systems.includes(systemSelect.value))
+              .map(d => `<option value="${d.description} (${d.smn})">${d.description} (${d.smn})</option>`).join('');
+      };
+
+      container.appendChild(systemSelect);
+      container.appendChild(partSelect);
+      container.appendChild(qtyInput);
+
+      // תן שמות לשדות שיישלחו למייל
+      systemSelect.name = "מערכת";
+      partSelect.name = "פריט";
+      qtyInput.name = "כמות";
+
+      document.getElementById('items').appendChild(container);
+    }
+  </script>
+</body>
+</html>
