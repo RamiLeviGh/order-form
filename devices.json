@@ -1,0 +1,340 @@
+[
+  {
+    "system": "SYSMEX CS-5100",
+    "parts": [
+      {
+        "smn": "10454698",
+        "description": "HOLDER COAGULATION (PKG 10)"
+      },
+      {
+        "smn": "10726155",
+        "description": "LAMP_ASSY NO.11(CS-5100)#AW152784"
+      }
+    ]
+  },
+  {
+    "system": "SYSMEX CS-2100",
+    "parts": [
+      {
+        "smn": "10483322",
+        "description": "LAMP HALOG JB12V24WF6/SSM #CR323182"
+      },
+      {
+        "smn": "10454698",
+        "description": "HOLDER COAGULATION (PKG 10)"
+      }
+    ]
+  },
+  {
+    "system": "SYSMEX CA-1500",
+    "parts": [
+      {
+        "smn": "10622932",
+        "description": "LAMP HALOGEN JCR 6V10W20H #BB696646"
+      }
+    ]
+  },
+  {
+    "system": "IMMULITE",
+    "parts": [
+      {
+        "smn": "10484728",
+        "description": "KIT, TUBE TOP SAMPLE RACK"
+      },
+      {
+        "smn": "11154207",
+        "description": "R-KIT PROBE ASSEMBLY IMM2000/2500"
+      },
+      {
+        "smn": "10291956",
+        "description": "KIT, SAMPLE RACK"
+      },
+      {
+        "smn": "10737135",
+        "description": "MOTOR SPIRAL DRIVE - HEMATEK3"
+      },
+      {
+        "smn": "10312656",
+        "description": "HEMATEK PUMP TUBE SET"
+      },
+      {
+        "smn": "10323320",
+        "description": "HEMATEK UNDER PLATEN TUBING"
+      },
+      {
+        "smn": "10316256",
+        "description": "HEMATEK CANNULA SET"
+      }
+    ]
+  },
+  {
+    "system": "BN2",
+    "parts": [
+      {
+        "smn": "11240037",
+        "description": "FILT./TUB./FITT.KIT - BCSXP,BNP"
+      },
+      {
+        "smn": "11240038",
+        "description": "FILTER KIT QTY 10 - BCSXP, BNP"
+      }
+    ]
+  },
+  {
+    "system": "BN PROSPEC",
+    "parts": [
+      {
+        "smn": "11240037",
+        "description": "FILT./TUB./FITT.KIT - BCSXP,BNP"
+      },
+      {
+        "smn": "11240038",
+        "description": "FILTER KIT QTY 10 - BCSXP, BNP"
+      }
+    ]
+  },
+  {
+    "system": "ATELLICA SOLUTION",
+    "parts": [
+      {
+        "smn": "11083036",
+        "description": "FILTER AIR REAR PANEL"
+      },
+      {
+        "smn": "11075725",
+        "description": "FILTER INTAKE VAC / THERMAL"
+      },
+      {
+        "smn": "11071144",
+        "description": "PROBE ASSY REAGENT"
+      },
+      {
+        "smn": "11075751",
+        "description": "PROBE METERING ASSY HS REAGENT"
+      },
+      {
+        "smn": "11075752",
+        "description": "PROBE METERING ASSY HS DIL SAMPLE"
+      },
+      {
+        "smn": "11075682",
+        "description": "TUBING PERISTALTIC PUMP"
+      },
+      {
+        "smn": "11075676",
+        "description": "Source LAMP ASSY HALOGEN BULB"
+      }
+    ]
+  },
+  {
+    "system": "ATELLICA NEPH",
+    "parts": [
+      {
+        "smn": "11240037",
+        "description": "FILT./TUB./FITT.KIT - BCSXP,BNP"
+      },
+      {
+        "smn": "11240038",
+        "description": "FILTER KIT QTY 10 - BCSXP, BNP"
+      }
+    ]
+  },
+  {
+    "system": "ATELLICA CI 1900 ANALYZER",
+    "parts": [
+      {
+        "smn": "11071144",
+        "description": "PROBE ASSY REAGENT"
+      },
+      {
+        "smn": "11075751",
+        "description": "PROBE METERING ASSY HS REAGENT"
+      },
+      {
+        "smn": "11075752",
+        "description": "PROBE METERING ASSY HS DIL SAMPLE"
+      },
+      {
+        "smn": "11075682",
+        "description": "TUBING PERISTALTIC PUMP"
+      },
+      {
+        "smn": "11075676",
+        "description": "Source LAMP ASSY HALOGEN BULB"
+      }
+    ]
+  },
+  {
+    "system": "ADVIA CENTAUR XPT",
+    "parts": [
+      {
+        "smn": "10812019",
+        "description": "PROBE  RGT  XPT"
+      }
+    ]
+  },
+  {
+    "system": "ADVIA CENTAUR XP",
+    "parts": [
+      {
+        "smn": "10812019",
+        "description": "PROBE  RGT  XPT"
+      }
+    ]
+  },
+  {
+    "system": "ADVIA 2400",
+    "parts": [
+      {
+        "smn": "10321772",
+        "description": "CUVETTE TRAY RRV  1X17"
+      },
+      {
+        "smn": "10323157",
+        "description": "CUVETTE, RRV, 1X17, 2400"
+      },
+      {
+        "smn": "10321822",
+        "description": "CUVETTE, DTT, 1X20"
+      },
+      {
+        "smn": "10337398",
+        "description": "DPP PROBE"
+      },
+      {
+        "smn": "10337401",
+        "description": "PROBE RPP1/RPP2 ADVIA 1800/2400"
+      },
+      {
+        "smn": "10309448",
+        "description": "LAMP HALOGEN"
+      }
+    ]
+  },
+  {
+    "system": "ADVIA 2120I ROHS",
+    "parts": [
+      {
+        "smn": "10310127",
+        "description": "LAMP & CONN.ASSY-COLORIM."
+      },
+      {
+        "smn": "10311260",
+        "description": "Filter-245UM Drain"
+      },
+      {
+        "smn": "10310149",
+        "description": "SAMPLE PROBE ASSY"
+      },
+      {
+        "smn": "10309252",
+        "description": "Straw filter RGT"
+      },
+      {
+        "smn": "10488816",
+        "description": "FILTER SHEATH 0.45UM PORE SIZE"
+      },
+      {
+        "smn": "10329234",
+        "description": "NEEDLE CLEANING KIT"
+      },
+      {
+        "smn": "11220526",
+        "description": "ZORN 5 V PEROX LAMP ASSY"
+      },
+      {
+        "smn": "10311254",
+        "description": "FILTER-VACUSHIELD"
+      },
+      {
+        "smn": "10311262",
+        "description": "ORIFICE RESTRICTOR(.005IN"
+      },
+      {
+        "smn": "10317842",
+        "description": "CHECK VALVE"
+      },
+      {
+        "smn": "11220503",
+        "description": "Blood line for sample into UFC"
+      },
+      {
+        "smn": "10310090",
+        "description": "CLOT FILTER, TEFLON"
+      },
+      {
+        "smn": "10945367",
+        "description": "DRAIN LINE ASSY V44"
+      },
+      {
+        "smn": "10945368",
+        "description": "DRAIN LINE ASSY V46"
+      },
+      {
+        "smn": "10945369",
+        "description": "DRAIN LINE ASSY V45"
+      },
+      {
+        "smn": "10311257",
+        "description": "FILTER 0.22UM RBC SHEATH"
+      },
+      {
+        "smn": "10310236",
+        "description": "TUBING TYGON .081 ID RED"
+      },
+      {
+        "smn": "10311165",
+        "description": "Coupling cleaning  kit"
+      },
+      {
+        "smn": "10311243",
+        "description": "ADAPTOR FEMALE LUER"
+      },
+      {
+        "smn": "10309253",
+        "description": "DEFOAMER STRAW"
+      },
+      {
+        "smn": "10313986",
+        "description": "SPRING CLIP, RACK"
+      },
+      {
+        "smn": "10309335",
+        "description": "ASSY,RACKSET"
+      },
+      {
+        "smn": "10287182",
+        "description": "STAINLESS STEEL NEEDLE WITH HOLDER"
+      }
+    ]
+  },
+  {
+    "system": "ADVIA 1800",
+    "parts": [
+      {
+        "smn": "10321772",
+        "description": "CUVETTE TRAY RRV  1X17"
+      },
+      {
+        "smn": "10323157",
+        "description": "CUVETTE, RRV, 1X17, 2400"
+      },
+      {
+        "smn": "10321822",
+        "description": "CUVETTE, DTT, 1X20"
+      },
+      {
+        "smn": "10337398",
+        "description": "DPP PROBE"
+      },
+      {
+        "smn": "10337401",
+        "description": "PROBE RPP1/RPP2 ADVIA 1800/2400"
+      },
+      {
+        "smn": "10309448",
+        "description": "LAMP HALOGEN"
+      }
+    ]
+  }
+]
