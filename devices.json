@@ -13,6 +13,19 @@
     ]
   },
   {
+    "system": "SYSMEX CS-2500",
+    "parts": [
+      {
+        "smn": "10483322",
+        "description": "LAMP HALOG JB12V24WF6/SSM #CR323182"
+      },
+      {
+        "smn": "10454698",
+        "description": "HOLDER COAGULATION (PKG 10)"
+      }
+    ]
+  },
+  {
     "system": "SYSMEX CS-2100",
     "parts": [
       {
