@@ -5,34 +5,74 @@
   <title>טופס הזמנת חלקים</title>
   <style>
     body {
-      font-family: Arial;
+      font-family: Arial, sans-serif;
       direction: rtl;
       padding: 20px;
       max-width: 800px;
       margin: auto;
+      background-color: #f9f9f9;
     }
+
+    .logo {
+      max-width: 200px;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
     label, select, input, textarea {
       display: block;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       width: 100%;
       max-width: 500px;
+      font-size: 16px;
     }
+
+    textarea {
+      height: 80px;
+    }
+
     button {
       padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
     }
+
     .item-row {
       border: 1px solid #ccc;
       padding: 10px;
       margin-bottom: 10px;
+      background-color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      label, input, select, textarea, button {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <img src="logo_cmyk_converted.png" alt="לוגו החברה" class="logo">
   <h1>טופס הזמנת מתכלים וחלקי חילוף</h1>
 
   <form action="https://formsubmit.co/rami.levi@siemens-healthineers.com" method="POST" onsubmit="return prepareSummary()">
     
-    <!-- שדות לקוח -->
     <label>שם מלא:<input type="text" name="שם_מלא" required></label>
     <label>בית חולים:<input type="text" name="בית_חולים" required></label>
     <label>שם המעבדה:<input type="text" name="שם_המעבדה"></label>
@@ -44,11 +84,12 @@
     <div id="items"></div>
     <button type="button" onclick="addItem()">הוסף פריט</button>
 
-    <input type="hidden" name="_next" value="https://ramilevigh.github.io/thanks.html">
+    <!-- שדות חבויים -->
+    <input type="hidden" name="_next" value="https://ramilevigh.github.io/order-form/thanks.html">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="פריטים_להזמנה" id="summaryField">
 
-    <br><br>
+    <br>
     <button type="submit">שלח הזמנה</button>
   </form>
 
@@ -114,5 +155,6 @@
       return true;
     }
   </script>
+
 </body>
 </html>
