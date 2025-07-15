@@ -2,59 +2,88 @@
 <html lang="he">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>טופס הזמנת חלקים</title>
   <style>
-    body { font-family: Arial, sans-serif; direction: rtl; padding: 20px; font-size: 18px; }
-    label, select, input, textarea { display: block; margin-bottom: 10px; width: 100%; max-width: 500px; }
-    button { padding: 12px; width: 100%; background-color: #1976d2; color: white; border: none; border-radius: 8px; }
-    .item-row { border: 1px solid #ccc; padding: 12px; margin-bottom: 15px; border-radius: 6px; background-color: #f9f9f9; }
+    body {
+      font-family: Arial;
+      direction: rtl;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    label, select, input, textarea {
+      display: block;
+      margin-bottom: 10px;
+      width: 100%;
+      max-width: 500px;
+    }
+    button {
+      padding: 10px 20px;
+    }
+    .item-row {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
-  <img src="logo_cmyk_converted.png" alt="לוגו החברה" style="max-width: 250px; margin-bottom: 20px;">
   <h1>טופס הזמנת מתכלים וחלקי חילוף</h1>
 
-  <form action="https://formsubmit.co/rami.levi@siemens-healthineers.com" method="POST" onsubmit="return prepareItems();">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="התקבלה הזמנת חלקים חדשה">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="פריטים להזמנה" id="itemsData">
-
-    <label>שם מלא:<input type="text" name="שם מלא" required></label>
-    <label>בית חולים:<input type="text" name="בית חולים" required></label>
-    <label>שם המעבדה:<input type="text" name="שם המעבדה"></label>
+  <form action="https://formsubmit.co/rami.levi@siemens-healthineers.com" method="POST" onsubmit="return prepareSummary()">
+    
+    <!-- שדות לקוח -->
+    <label>שם מלא:<input type="text" name="שם_מלא" required></label>
+    <label>בית חולים:<input type="text" name="בית_חולים" required></label>
+    <label>שם המעבדה:<input type="text" name="שם_המעבדה"></label>
     <label>טלפון:<input type="tel" name="טלפון" required></label>
     <label>אימייל:<input type="email" name="אימייל" required></label>
     <label>הערות:<textarea name="הערות"></textarea></label>
 
     <h3>פריטים להזמנה</h3>
     <div id="items"></div>
-    <button type="button" onclick="addItem()">➕ הוסף פריט</button>
+    <button type="button" onclick="addItem()">הוסף פריט</button>
+
+    <input type="hidden" name="_next" value="https://ramilevigh.github.io/thanks.html">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="פריטים_להזמנה" id="summaryField">
 
     <br><br>
-    <button type="submit">📤 שלח הזמנה</button>
+    <button type="submit">שלח הזמנה</button>
   </form>
 
   <script>
-    let devicesData = [];
-
-    fetch('devices.json')
-      .then(response => response.json())
-      .then(data => {
-        devicesData = data;
-      });
+    const systemsList = [
+      "Sysmex CS-5100",
+      "Sysmex CS-2500",
+      "Sysmex CS-2100",
+      "Sysmex CA-1500",
+      "IMMULITE",
+      "BN2",
+      "BN ProSpec",
+      "Atellica Solution",
+      "Atellica Neph",
+      "Atellica CI 1900 Analyzer",
+      "Advia Centaur XPT",
+      "Advia Centaur XP",
+      "Advia 2400",
+      "ADVIA 2120I ROHS",
+      "ADVIA 1800",
+      "HEMATEK"
+    ];
 
     function addItem() {
       const container = document.createElement('div');
       container.className = 'item-row';
 
       const systemSelect = document.createElement('select');
+      systemSelect.required = true;
       systemSelect.innerHTML = '<option value="">בחר מערכת</option>' +
-        devicesData.map(d => `<option value="${d.system}">${d.system}</option>`).join('');
+        systemsList.map(s => `<option value="${s}">${s}</option>`).join('');
 
-      const partSelect = document.createElement('select');
-      partSelect.innerHTML = '<option value="">בחר פריט</option>';
+      const partInput = document.createElement('input');
+      partInput.placeholder = 'פריט';
+      partInput.required = true;
 
       const qtyInput = document.createElement('input');
       qtyInput.type = 'number';
@@ -62,41 +91,26 @@
       qtyInput.placeholder = 'כמות';
       qtyInput.required = true;
 
-      systemSelect.onchange = function () {
-        const selectedSystem = systemSelect.value;
-        const systemParts = devicesData.find(d => d.system === selectedSystem)?.parts || [];
-        partSelect.innerHTML = '<option value="">בחר פריט</option>' +
-          systemParts.map(p => `<option value="${p.description} (${p.smn})">${p.description} (${p.smn})</option>`).join('');
-      };
-
-      systemSelect.name = "מערכת";
-      partSelect.name = "פריט";
-      qtyInput.name = "כמות";
-
       container.appendChild(systemSelect);
-      container.appendChild(partSelect);
+      container.appendChild(partInput);
       container.appendChild(qtyInput);
-
       document.getElementById('items').appendChild(container);
     }
 
-    function prepareItems() {
-      const rows = document.querySelectorAll('.item-row');
+    function prepareSummary() {
       const summary = [];
+      const rows = document.querySelectorAll('.item-row');
 
       rows.forEach(row => {
-        const selects = row.querySelectorAll('select');
-        const input = row.querySelector('input[type="number"]');
-        const system = selects[0]?.value || '';
-        const part = selects[1]?.value || '';
-        const qty = input?.value || '';
-
+        const system = row.children[0].value;
+        const part = row.children[1].value;
+        const qty = row.children[2].value;
         if (system && part && qty) {
           summary.push(`מערכת: ${system}, פריט: ${part}, כמות: ${qty}`);
         }
       });
 
-      document.getElementById('itemsData').value = summary.join('\n');
+      document.getElementById('summaryField').value = summary.join('\n');
       return true;
     }
   </script>
